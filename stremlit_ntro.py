@@ -80,7 +80,6 @@ def main():
         col1, col2 = st.columns([6, 6])
         col1.markdown("""
         Yo here this n that!
-        * **Python libraries:** matplotlib, pandas, streamlit u.c
         * **Data source:** [fantasy.premierleague.com](https://fantasy.premierleague.com/).
         """)
         check = col2.checkbox("Show Overall Stats")
