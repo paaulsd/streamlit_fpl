@@ -134,8 +134,9 @@ def main():
             if len(transfers)>0:
                 tr_content=transfers
             return tr_content
-
+        
         transfers_data=load_transfers(league_id)
+        col1.write("Gameweek Transfers")
         col1.dataframe(transfers_data)
         from visuals_faster import visuals_round
         visuals_round(data,league_id,selected_gw)
