@@ -119,6 +119,7 @@ def main():
                             print("this gw wasn't in league file, uploading transfers")
                             if finished_gws - selected_gw <-1:
                                 tr_content=None
+                                print("Gameweek not yet happened")
                             else:
                                 try:
                                     # print(finished_gws,selected_gw)
