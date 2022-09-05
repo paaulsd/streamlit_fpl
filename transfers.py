@@ -84,6 +84,9 @@ def transfers_GW(GW,id):
     games_played=data["results"]
     Transfers=[]
     for team in data["results"]:
+        if team["entry_name"] == "AVERAGE":
+            Transfers.append({"GW": GW, "Team_name": "AVERAGE", "Players in": None, "Players out": None, "Immediate gain": None})
+            continue
         Transfers.append({"GW":GW,"Team_name":team["entry_name"],"Players in":", ".join(transfers_made(team["entry"],GW)[2]),"Players out":", ".join(transfers_made(team["entry"],GW)[3]),
                           "Immediate gain":transfers_made(team["entry"],GW)[1]})
         #print(Transfers)
