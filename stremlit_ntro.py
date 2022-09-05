@@ -118,20 +118,33 @@ def main():
                         if i>1:print("these transfers are added to file")
                         if len(transfers)==0:
                             print("this gw wasn't in league file, uploading transfers")
-                            tr_content = transfers_GW(selected_gw, league_id)
-                            if finished_gws>=selected_gw:
-                                transfers_update(selected_gw,league_id,tr_content)
-                                print('updating file...')
-                            else:print("but we won't update file, because gw isn't finished yet")
+                            if finished_gws - selected_gw <-1:
+                                tr_content=None
+                            else:
+                                try:
+                                # print(finished_gws,selected_gw)
+                                    tr_content = transfers_GW(selected_gw, league_id)
+                                    if finished_gws>=selected_gw:
+                                        transfers_update(selected_gw,league_id,tr_content)
+                                        print('updating file...')
+                                    else:print("but we won't update file, because gw isn't finished yet")
+                                except KeyError as e:
+                                    print(e)
             if is_in_file==False:
                 print("this league wasn't in our archive")
-                tr_content = transfers_GW(selected_gw, league_id)
-                if finished_gws >= selected_gw:
-                    print("adding it now...")
-                    with open(f"history\league_transfers_{league_id}.csv", "w",encoding='utf8') as file:
-                        df=pd.DataFrame(tr_content)
-                        df.to_csv(file, header=True,encoding="utf8")
-                else:print("but we won't add it now because this gw is not finished yet")
+                if finished_gws - selected_gw <-1:
+                    tr_content=None
+                else:
+                    try:
+                        tr_content = transfers_GW(selected_gw, league_id)
+                        if finished_gws >= selected_gw:
+                            print("adding it now...")
+                            with open(f"history\league_transfers_{league_id}.csv", "w",encoding='utf8') as file:
+                                df=pd.DataFrame(tr_content)
+                                df.to_csv(file, header=True,encoding="utf8")
+                        else:print("but we won't add it now because this gw is not finished yet")
+                    except KeyError as e:
+                        print(e)
             if len(transfers)>0:
                 tr_content=transfers
             return tr_content
