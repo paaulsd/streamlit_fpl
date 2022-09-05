@@ -136,12 +136,12 @@ def Team_History_Data(id):
 # print(Team_History_Data(619338))
 #print(Points_delta_list)
 
-def read_json():
+# def read_json():
 
-    file2 = open(r"C:\Users\paaul\PycharmProjects\FANTASYPREMIERLEAGUE\team_fixtures.txt","r",encoding='utf8')
-    slava_content=json.loads(file2.read())
-    print(slava_content)
-read_json()
+#     file2 = open(r"C:\Users\paaul\PycharmProjects\FANTASYPREMIERLEAGUE\team_fixtures.txt","r",encoding='utf8')
+#     slava_content=json.loads(file2.read())
+#     print(slava_content)
+# read_json()
 """  
     for n in Table_all.find("tr",first=False):
         GWX = n.find("tr", first=True)

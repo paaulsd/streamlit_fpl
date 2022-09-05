@@ -80,7 +80,6 @@ def main():
         col1, col2 = st.columns([6, 6])
         col1.markdown("""
         Yo here this n that!
-        * **Python libraries:** matplotlib, pandas, streamlit u.c
         * **Data source:** [fantasy.premierleague.com](https://fantasy.premierleague.com/).
         """)
         check = col2.checkbox("Show Overall Stats")
@@ -120,9 +119,10 @@ def main():
                             print("this gw wasn't in league file, uploading transfers")
                             if finished_gws - selected_gw <-1:
                                 tr_content=None
+                                print("Gameweek not yet happened")
                             else:
                                 try:
-                                # print(finished_gws,selected_gw)
+                                    # print(finished_gws,selected_gw)
                                     tr_content = transfers_GW(selected_gw, league_id)
                                     if finished_gws>=selected_gw:
                                         transfers_update(selected_gw,league_id,tr_content)
@@ -148,8 +148,9 @@ def main():
             if len(transfers)>0:
                 tr_content=transfers
             return tr_content
-
+        
         transfers_data=load_transfers(league_id)
+        col1.write("Gameweek Transfers")
         col1.dataframe(transfers_data)
         from visuals_faster import visuals_round
         visuals_round(data,league_id,selected_gw)
