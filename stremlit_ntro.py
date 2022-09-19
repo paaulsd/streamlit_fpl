@@ -94,7 +94,7 @@ def main():
         selected_gw = st.sidebar.selectbox('Gameweek', gws)
         col1.dataframe(Round_statistics(league_id, selected_gw))
 
-        @st.cache
+        #@st.cache
         def load_transfers(league_id):
             tr_content=None
             transfers=[]
