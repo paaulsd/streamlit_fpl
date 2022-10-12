@@ -114,12 +114,12 @@ def main():
                             if int(item.get("GW"))==selected_gw:
                                 i+=1
                                 transfers.append(item)
-                        if i>1:print("these transfers are added to file")
+                        if i>1:print("these transfers are added to file", finished_gws)
                         if len(transfers)==0:
                             print("this gw wasn't in league file, uploading transfers")
                             if finished_gws - selected_gw <-1:
                                 tr_content=None
-                                print("Gameweek not yet happened")
+                                print("Gameweek not yet happened", selected_gw,finished_gws)
                             else:
                                 try:
                                     # print(finished_gws,selected_gw)

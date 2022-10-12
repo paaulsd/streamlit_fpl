@@ -111,7 +111,8 @@ def Team_History_Data(id):
     address = f"https://fantasy.premierleague.com/api/leagues-h2h/{id}/standings/"
     response = requests.get(address)
     data=response.json()["standings"]
-    gws_finished=int(str(data).split("matches_played': ")[1][:1])
+    gws_finished=(str(data).split("matches_played': ")[1])
+    gws_finished=int(gws_finished.split(",")[0])
     # print(gws_finished==5)
     #print(data.keys())
     History_dict=[]
