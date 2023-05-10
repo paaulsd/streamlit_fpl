@@ -56,7 +56,7 @@ from matplotlib import cm
 st.set_page_config(layout="wide")
 st.write("""
 # FPL SIGULDA
-Let's **gooooo**!
+Let's **go**!
 """)
 def main():
     st.write("Head-to-Head league id: ")
